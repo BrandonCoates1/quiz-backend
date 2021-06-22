@@ -4,18 +4,18 @@ import mysql from "mysql2";
 import cors from "cors";
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "PASSWORD",
-    database: "master23",
+    host: process.env.HOST,
+    port: process.env.PORT,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
 });
 
 const router = express.Router();
 router.options("*", cors());
 
 const options = {
-    "Access-Control-Allow-Origin": "http://localhost:3000",
+    "Access-Control-Allow-Origin": process.env.REACT_URL,
     "Access-Control-Allow-Methods": "POST",
     "Access-Control-Allow-Headers": "Content-Type"
 }
